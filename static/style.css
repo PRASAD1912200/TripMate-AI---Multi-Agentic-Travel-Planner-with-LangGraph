@@ -2494,13 +2494,12 @@ to {
     transform:
         translateY(0);
 }
-```
 
 }
 
 @keyframes errorShake {
 
-```
+
 0%,
 100% {
     transform:
@@ -2516,7 +2515,6 @@ to {
     transform:
         translateX(5px);
 }
-```
 
 }
 
@@ -2526,7 +2524,7 @@ LOADER
 
 .loader {
 
-```
+
 display:
     inline-block;
 
@@ -2548,18 +2546,18 @@ border-radius:
 
 animation:
     spin 0.7s linear infinite;
-```
+
 
 }
 
 @keyframes spin {
 
-```
+
 to {
     transform:
         rotate(360deg);
 }
-```
+
 
 }
 
@@ -2574,7 +2572,7 @@ FOOTER
 
 footer {
 
-```
+
 text-align:
     center;
 
@@ -2590,13 +2588,13 @@ animation:
     ease-out
     1s
     both;
-```
+
 
 }
 
 .footer-logo {
 
-```
+
 font-size:
     1.15rem;
 
@@ -2608,28 +2606,28 @@ color:
 
 margin-bottom:
     5px;
-```
+
 
 }
 
 .footer-logo span {
 
-```
+
 color:
     #38bdf8;
-```
+
 
 }
 
 footer p {
 
-```
+
 font-size:
     0.8rem;
 
 margin-bottom:
     15px;
-```
+
 
 }
 
@@ -2650,13 +2648,13 @@ gap:
 
 margin-bottom:
     15px;
-```
+
 
 }
 
 .footer-tech span {
 
-```
+
 padding:
     5px 9px;
 
@@ -2675,25 +2673,23 @@ font-size:
 
 color:
     #64748b;
-```
+
 
 }
 
 .footer-copy {
 
-```
+
 font-size:
     0.68rem;
 
 color:
     #475569;
-```
 
 }
 
 @keyframes footerAppear {
 
-```
 from {
     opacity:
         0;
@@ -2703,7 +2699,7 @@ to {
     opacity:
         1;
 }
-```
+
 
 }
 
@@ -2713,7 +2709,7 @@ PRINT
 
 @media print {
 
-```
+
 body {
 
     background:
@@ -2769,7 +2765,7 @@ footer,
     padding:
         0;
 }
-```
+
 
 }
 
@@ -2779,7 +2775,7 @@ TABLET
 
 @media (max-width: 760px) {
 
-```
+
 .app-container {
 
     width:
@@ -2923,7 +2919,7 @@ textarea {
     font-size:
         0.88rem;
 }
-```
+
 
 }
 
@@ -2933,7 +2929,7 @@ SMALL MOBILE
 
 @media (max-width: 430px) {
 
-```
+
 .app-container {
 
     width:
@@ -3036,7 +3032,7 @@ textarea {
     padding:
         0 15px;
 }
-```
+
 
 }
 
@@ -3047,14 +3043,14 @@ ACCESSIBILITY
 button:focus-visible,
 textarea:focus-visible {
 
-```
+
 outline:
     2px solid
     #38bdf8;
 
 outline-offset:
     3px;
-```
+
 
 }
 
@@ -3064,7 +3060,7 @@ REDUCED MOTION
 
 @media (prefers-reduced-motion: reduce) {
 
-```
+
 *,
 *::before,
 *::after {
@@ -3081,7 +3077,7 @@ REDUCED MOTION
     scroll-behavior:
         auto !important;
 }
-```
+
 
 }
 /* =========================================================
@@ -3089,17 +3085,18 @@ TRIPMATE AI
 PREMIUM ANIMATED TRAVEL UI
 ========================================================= */
 
-{
+* {
 margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
 
+
 /* =========================================================
 ROOT VARIABLES
 ========================================================= */
 
-{
+:root {
 
 --bg-primary: #050b14;
 --bg-secondary: #081525;
