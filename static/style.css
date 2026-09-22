@@ -5921,3 +5921,44 @@ REDUCED MOTION
 }
 
 }
+
+/* =========================================================
+   CURSOR FIX
+   ========================================================= */
+
+/* Normal mouse cursor */
+html,
+body {
+    cursor: default;
+}
+
+/* Text fields */
+input,
+textarea {
+    cursor: text;
+}
+
+/* Clickable elements */
+button,
+a,
+[role="button"],
+.quick-prompts button,
+#sendBtn,
+.copy-btn,
+.download-btn {
+    cursor: pointer !important;
+}
+
+/* Disabled buttons */
+button:disabled {
+    cursor: not-allowed !important;
+}
+
+/* Keep normal cursor on non-clickable content */
+.planner-card,
+.result-section,
+.pdf-content,
+.result-box,
+.hero-section {
+    cursor: default;
+}
