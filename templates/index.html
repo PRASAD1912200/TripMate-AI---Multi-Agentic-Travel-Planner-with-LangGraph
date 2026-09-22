@@ -1,129 +1,320 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TripMate AI</title>
+<meta
+    name="description"
+    content="TripMate AI - Your intelligent multi-agent travel planner powered by LangGraph."
+>
 
-    <link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#06111f">
+
+<title>TripMate AI — Intelligent Travel Planner</title>
+
+<link rel="stylesheet" href="/static/style.css">
+```
+
 </head>
 
 <body>
 
-    <div class="page-bg">
-        <div class="gradient-circle circle-1"></div>
-        <div class="gradient-circle circle-2"></div>
-        <div class="gradient-circle circle-3"></div>
-    </div>
+```
+<!-- =====================================================
+     BACKGROUND
+====================================================== -->
 
-    <main class="app-container">
+<div class="page-bg" aria-hidden="true">
 
-        <section class="hero-section">
-            <div class="badge">
-                ✈️ TripMate AI — A Multi-Agent Travel Planner with LangGraph
+    <div class="gradient-circle circle-1"></div>
+
+    <div class="gradient-circle circle-2"></div>
+
+    <div class="gradient-circle circle-3"></div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN APP
+====================================================== -->
+
+<main class="app-container">
+
+
+    <!-- =================================================
+         HERO SECTION
+    ================================================== -->
+
+    <section class="hero-section">
+
+        <div class="badge">
+            ✈️ TripMate AI · Multi-Agent Travel Intelligence
+        </div>
+
+        <h1>
+            Plan Less.<br>
+            Travel More.
+        </h1>
+
+        <p>
+            Your AI-powered travel companion that turns a simple
+            idea into a complete trip plan with flights, hotels,
+            sightseeing and personalized recommendations.
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         TRAVEL PLANNER
+    ================================================== -->
+
+    <section class="planner-card">
+
+
+        <!-- Header -->
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    Where are you going? 🌍
+                </h2>
+
+                <p>
+                    Tell TripMate about your destination, dates,
+                    budget and travel preferences.
+                </p>
+
             </div>
 
-            <h1>
-                Plan Your Perfect Trip with AI
+
+            <!-- AI Status -->
+
+            <div class="status-pill">
+
+                <span class="status-dot"></span>
+
+                AI Online
+
+            </div>
+
+        </div>
+
+
+        <!-- Input -->
+
+        <div class="input-area">
+
+            <textarea
+                id="userInput"
+                aria-label="Describe your trip"
+                placeholder="Example: Plan a 7-day Japan trip from India for 2 people under ₹2 lakh, including flights, hotels, sightseeing and local transportation..."
+            ></textarea>
+
+
+            <button
+                id="sendBtn"
+                onclick="sendMessage()"
+                aria-label="Generate travel plan"
+            >
+
+                <span id="btnText">
+                    ✨ Plan My Trip
+                </span>
+
+                <span
+                    id="btnLoader"
+                    class="loader hidden"
+                ></span>
+
+            </button>
+
+        </div>
+
+
+        <!-- Quick Prompts -->
+
+        <div class="quick-prompts">
+
+            <button
+                onclick="setPrompt('Plan a complete 7 days Japan trip from India including flights, hotels, sightseeing and local transportation under ₹2 lakhs.')"
+            >
+                🇯🇵 Japan Adventure
+            </button>
+
+
+            <button
+                onclick="setPrompt('Plan a 5 days Dubai trip from India including flights, hotels, sightseeing and activities for a reasonable budget.')"
+            >
+                🏙️ Dubai Escape
+            </button>
+
+
+            <button
+                onclick="setPrompt('Plan a 7 days Thailand trip from India with budget-friendly hotels, flights, beaches, sightseeing and local experiences.')"
+            >
+                🏝️ Thailand Getaway
+            </button>
+
+
+            <button
+                onclick="setPrompt('Plan a 5 days Bali trip from India including flights, hotels, sightseeing, beaches and activities.')"
+            >
+                🌴 Bali Trip
+            </button>
+
+
+            <button
+                onclick="setPrompt('Find global flight information and available travel options.')"
+            >
+                ✈️ Flight Search
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         RESULT SECTION
+    ================================================== -->
+
+    <section
+        id="resultSection"
+        class="result-section hidden"
+    >
+
+
+        <!-- Result Header -->
+
+        <div class="result-header">
+
+            <div>
+
+                <h2>
+                    🧳 Your AI Travel Plan
+                </h2>
+
+                <p id="threadInfo">
+                    TripMate is preparing your personalized itinerary...
+                </p>
+
+            </div>
+
+
+            <!-- Result Actions -->
+
+            <div class="result-actions">
+
+                <button
+                    class="copy-btn"
+                    onclick="copyResult()"
+                >
+                    📋 Copy
+                </button>
+
+
+                <button
+                    class="download-btn"
+                    onclick="downloadPDF()"
+                >
+                    📄 Download PDF
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Generated Travel Plan -->
+
+        <div
+            id="pdfContent"
+            class="pdf-content"
+        >
+
+            <h1 class="pdf-title">
+                TripMate AI — Travel Plan
             </h1>
 
-            <p>
-                Search flights, discover hotels, and generate a complete travel itinerary using a multi-agent LangGraph system.
-            </p>
-        </section>
 
-        <section class="planner-card">
+            <div
+                id="resultBox"
+                class="result-box"
+            ></div>
 
-            <div class="card-header">
-                <div>
-                    <h2>Where do you want to go?</h2>
-                    <p>
-                        Example: Plan a complete 7 days Japan trip from Bangladesh under 2 lakhs.
-                    </p>
-                </div>
+        </div>
 
-                <div class="status-pill">
-                    <span class="status-dot"></span>
-                    Online
-                </div>
-            </div>
+    </section>
 
-            <div class="input-area">
-                <textarea
-                    id="userInput"
-                    placeholder="Plan a complete 7 days Japan trip including flights, hotels and sightseeing under 2 lakhs..."
-                ></textarea>
 
-                <button id="sendBtn" onclick="sendMessage()">
-                    <span id="btnText">Generate Plan</span>
-                    <span id="btnLoader" class="loader hidden"></span>
-                </button>
-            </div>
+    <!-- =================================================
+         ERROR MESSAGE
+    ================================================== -->
 
-            <div class="quick-prompts">
-                <button onclick="setPrompt('Plan a complete 7 days Japan trip from Bangladesh including flights, hotels and sightseeing under 2 lakhs.')">
-                    Japan Trip
-                </button>
+    <section
+        id="errorBox"
+        class="error-box hidden"
+        role="alert"
+    ></section>
 
-                <button onclick="setPrompt('Plan a 5 days Dubai trip from Dhaka with flights, hotels and sightseeing.')">
-                    Dubai Trip
-                </button>
 
-                <button onclick="setPrompt('Plan a 7 days Thailand trip from Bangladesh with budget hotels and sightseeing.')">
-                    Thailand Trip
-                </button>
+</main>
 
-                <button onclick="setPrompt('Give me all country flight info.')">
-                    Global Flights
-                </button>
-            </div>
 
-        </section>
+<!-- =====================================================
+     FOOTER
+====================================================== -->
 
-        <section id="resultSection" class="result-section hidden">
+<footer>
 
-            <div class="result-header">
-                <div>
-                    <h2>Your AI Travel Plan</h2>
-                    <p id="threadInfo">Thread ID: -</p>
-                </div>
+    <strong>TripMate AI</strong>
 
-                <div class="result-actions">
-                    <button class="copy-btn" onclick="copyResult()">
-                        Copy
-                    </button>
+    <span> · </span>
 
-                    <button class="download-btn" onclick="downloadPDF()">
-                        Download PDF
-                    </button>
-                </div>
-            </div>
+    Your Intelligent Travel Companion
 
-            <div id="pdfContent" class="pdf-content">
-                <h1 class="pdf-title">AI Travel Plan</h1>
-                <div id="resultBox" class="result-box"></div>
-            </div>
+    <br>
 
-        </section>
+    <small>
+        Powered by FastAPI · LangGraph · Groq · PostgreSQL ·
+        Tavily · AviationStack
+    </small>
 
-        <section id="errorBox" class="error-box hidden"></section>
+</footer>
 
-    </main>
 
-    <footer>
-        Built with FastAPI, LangGraph, Groq, PostgreSQL, Tavily and AviationStack
-    </footer>
+<!-- =====================================================
+     MARKDOWN RENDERER
+====================================================== -->
 
-    <!-- Markdown Renderer -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">
+</script>
 
-    <!-- PDF Download Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <!-- Your Custom JS -->
-    <script src="/static/script.js"></script>
+<!-- =====================================================
+     PDF GENERATOR
+====================================================== -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+</script>
+
+
+<!-- =====================================================
+     TRIPMATE CUSTOM JAVASCRIPT
+====================================================== -->
+
+<script src="/static/script.js"></script>
+```
 
 </body>
 </html>
