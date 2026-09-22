@@ -5,14 +5,20 @@
     <meta charset="UTF-8">
 
 ```
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <meta
     name="description"
-    content="TripMate AI - Your intelligent multi-agent travel planner powered by LangGraph."
+    content="TripMate AI — an intelligent multi-agent travel planner powered by LangGraph."
 >
 
-<meta name="theme-color" content="#06111f">
+<meta
+    name="theme-color"
+    content="#06111f"
+>
 
 <title>TripMate AI — Intelligent Travel Planner</title>
 
@@ -25,74 +31,117 @@
 
 ```
 <!-- =====================================================
-     BACKGROUND
+     ANIMATED BACKGROUND
 ====================================================== -->
 
 <div class="page-bg" aria-hidden="true">
 
     <div class="gradient-circle circle-1"></div>
-
     <div class="gradient-circle circle-2"></div>
-
     <div class="gradient-circle circle-3"></div>
+
+    <div class="stars stars-1"></div>
+    <div class="stars stars-2"></div>
 
 </div>
 
 
 <!-- =====================================================
-     MAIN APP
+     MAIN APPLICATION
 ====================================================== -->
 
 <main class="app-container">
 
 
     <!-- =================================================
-         HERO SECTION
+         HERO
     ================================================== -->
 
     <section class="hero-section">
 
         <div class="badge">
-            ✈️ TripMate AI · Multi-Agent Travel Intelligence
+            <span class="badge-plane">✈️</span>
+            TripMate AI
+            <span class="badge-divider">•</span>
+            Multi-Agent Travel Intelligence
         </div>
 
+
         <h1>
-            Plan Less.<br>
-            Travel More.
+            Plan Less.
+            <span>Travel More.</span>
         </h1>
 
+
         <p>
-            Your AI-powered travel companion that turns a simple
-            idea into a complete trip plan with flights, hotels,
-            sightseeing and personalized recommendations.
+            Your intelligent AI travel companion that turns your
+            travel idea into a personalized itinerary with
+            flights, hotels, sightseeing and recommendations.
         </p>
+
+
+        <div class="hero-features">
+
+            <span>
+                ✈️ Flights
+            </span>
+
+            <span>
+                🏨 Hotels
+            </span>
+
+            <span>
+                🗺️ Itineraries
+            </span>
+
+            <span>
+                🤖 AI Planning
+            </span>
+
+        </div>
 
     </section>
 
 
     <!-- =================================================
-         TRAVEL PLANNER
+         PLANNER CARD
     ================================================== -->
 
     <section class="planner-card">
 
 
-        <!-- Header -->
-         <div class="travel-line" aria-hidden="true">
+        <!-- Animated flight path -->
+
+        <div
+            class="travel-line"
+            aria-hidden="true"
+        >
             <span class="plane">✈</span>
         </div>
 
+
+        <!-- Card Header -->
+
         <div class="card-header">
 
-            <div>
+            <div class="header-content">
+
+                <div class="section-label">
+                    <span class="label-icon">✦</span>
+                    AI TRAVEL PLANNER
+                </div>
+
 
                 <h2>
-                    Where are you going? 🌍
+                    Where are you going?
+                    <span class="heading-emoji">🌍</span>
                 </h2>
 
+
                 <p>
-                    Tell TripMate about your destination, dates,
-                    budget and travel preferences.
+                    Tell TripMate your destination, dates,
+                    budget and preferences. Our AI will handle
+                    the planning.
                 </p>
 
             </div>
@@ -104,22 +153,37 @@
 
                 <span class="status-dot"></span>
 
-                AI Online
+                <span>AI Online</span>
 
             </div>
 
         </div>
 
 
-        <!-- Input -->
+        <!-- =================================================
+             INPUT
+        ================================================== -->
 
         <div class="input-area">
 
-            <textarea
-                id="userInput"
-                aria-label="Describe your trip"
-                placeholder="Example: Plan a 7-day Japan trip from India for 2 people under ₹2 lakh, including flights, hotels, sightseeing and local transportation..."
-            ></textarea>
+            <div class="textarea-wrapper">
+
+                <div class="input-icon">
+                    ✈
+                </div>
+
+                <textarea
+                    id="userInput"
+                    aria-label="Describe your trip"
+                    placeholder="Example: Plan a 7-day Japan trip from India for 2 people under ₹2 lakh, including flights, hotels, sightseeing and local transportation..."
+                ></textarea>
+
+                <div class="input-hint">
+                    💡 Be specific about your budget, dates,
+                    destination and travel style.
+                </div>
+
+            </div>
 
 
             <button
@@ -128,8 +192,12 @@
                 aria-label="Generate travel plan"
             >
 
-                <span id="btnText">
-                    ✨ Plan My Trip
+                <span class="button-content">
+
+                    <span id="btnText">
+                        ✨ Plan My Trip
+                    </span>
+
                 </span>
 
                 <span
@@ -137,48 +205,84 @@
                     class="loader hidden"
                 ></span>
 
+                <span class="button-shine"></span>
+
             </button>
 
         </div>
 
 
-        <!-- Quick Prompts -->
+        <!-- =================================================
+             QUICK PROMPTS
+        ================================================== -->
 
-        <div class="quick-prompts">
+        <div class="quick-section">
 
-            <button
-                onclick="setPrompt('Plan a complete 7 days Japan trip from India including flights, hotels, sightseeing and local transportation under ₹2 lakhs.')"
-            >
-                🇯🇵 Japan Adventure
-            </button>
-
-
-            <button
-                onclick="setPrompt('Plan a 5 days Dubai trip from India including flights, hotels, sightseeing and activities for a reasonable budget.')"
-            >
-                🏙️ Dubai Escape
-            </button>
+            <div class="quick-title">
+                <span>⚡</span>
+                Try an example
+            </div>
 
 
-            <button
-                onclick="setPrompt('Plan a 7 days Thailand trip from India with budget-friendly hotels, flights, beaches, sightseeing and local experiences.')"
-            >
-                🏝️ Thailand Getaway
-            </button>
+            <div class="quick-prompts">
+
+                <button
+                    onclick="setPrompt('Plan a complete 7 days Japan trip from India including flights, hotels, sightseeing and local transportation under ₹2 lakhs.')"
+                >
+                    🇯🇵
+                    <span>Japan Adventure</span>
+                </button>
 
 
-            <button
-                onclick="setPrompt('Plan a 5 days Bali trip from India including flights, hotels, sightseeing, beaches and activities.')"
-            >
-                🌴 Bali Trip
-            </button>
+                <button
+                    onclick="setPrompt('Plan a 5 days Dubai trip from India including flights, hotels, sightseeing and activities for a reasonable budget.')"
+                >
+                    🏙️
+                    <span>Dubai Escape</span>
+                </button>
 
 
-            <button
-                onclick="setPrompt('Find global flight information and available travel options.')"
-            >
-                ✈️ Flight Search
-            </button>
+                <button
+                    onclick="setPrompt('Plan a 7 days Thailand trip from India with budget-friendly hotels, flights, beaches, sightseeing and local experiences.')"
+                >
+                    🏝️
+                    <span>Thailand Getaway</span>
+                </button>
+
+
+                <button
+                    onclick="setPrompt('Plan a 5 days Bali trip from India including flights, hotels, sightseeing, beaches and activities.')"
+                >
+                    🌴
+                    <span>Bali Trip</span>
+                </button>
+
+
+                <button
+                    onclick="setPrompt('Find global flight information and available travel options.')"
+                >
+                    ✈️
+                    <span>Flight Search</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Planner trust line -->
+
+        <div class="planner-footer">
+
+            <span>🔒 Your request stays private</span>
+
+            <span>•</span>
+
+            <span>⚡ AI-powered planning</span>
+
+            <span>•</span>
+
+            <span>🌎 Travel smarter</span>
 
         </div>
 
@@ -186,7 +290,7 @@
 
 
     <!-- =================================================
-         RESULT SECTION
+         RESULT
     ================================================== -->
 
     <section
@@ -194,25 +298,26 @@
         class="result-section hidden"
     >
 
-
-        <!-- Result Header -->
-
         <div class="result-header">
 
             <div>
+
+                <div class="section-label">
+                    <span class="label-icon">✦</span>
+                    YOUR PERSONALIZED JOURNEY
+                </div>
 
                 <h2>
                     🧳 Your AI Travel Plan
                 </h2>
 
                 <p id="threadInfo">
-                    TripMate is preparing your personalized itinerary...
+                    TripMate is preparing your personalized
+                    itinerary...
                 </p>
 
             </div>
 
-
-            <!-- Result Actions -->
 
             <div class="result-actions">
 
@@ -236,7 +341,7 @@
         </div>
 
 
-        <!-- Generated Travel Plan -->
+        <!-- Generated result -->
 
         <div
             id="pdfContent"
@@ -259,7 +364,7 @@
 
 
     <!-- =================================================
-         ERROR MESSAGE
+         ERROR
     ================================================== -->
 
     <section
@@ -278,18 +383,28 @@
 
 <footer>
 
-    <strong>TripMate AI</strong>
+    <div class="footer-logo">
+        ✈️ TripMate <span>AI</span>
+    </div>
 
-    <span> · </span>
+    <p>
+        Your intelligent travel companion
+    </p>
 
-    Your Intelligent Travel Companion
+    <div class="footer-tech">
 
-    <br>
+        <span>FastAPI</span>
+        <span>LangGraph</span>
+        <span>Groq</span>
+        <span>PostgreSQL</span>
+        <span>Tavily</span>
+        <span>AviationStack</span>
 
-    <small>
-        Powered by FastAPI · LangGraph · Groq · PostgreSQL ·
-        Tavily · AviationStack
-    </small>
+    </div>
+
+    <div class="footer-copy">
+        © 2026 TripMate AI · Built for smarter journeys
+    </div>
 
 </footer>
 
@@ -304,7 +419,7 @@
 
 
 <!-- =====================================================
-     PDF GENERATOR
+     PDF DOWNLOAD
 ====================================================== -->
 
 <script
@@ -313,7 +428,7 @@
 
 
 <!-- =====================================================
-     TRIPMATE CUSTOM JAVASCRIPT
+     CUSTOM JAVASCRIPT
 ====================================================== -->
 
 <script src="/static/script.js"></script>
